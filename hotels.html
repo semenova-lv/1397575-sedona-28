@@ -23,8 +23,76 @@
 
 <main>
     <section>
+        <!--Форма фильтра-->
         <h2>Фильтр</h2>
-        <!-- Здесь будет форма фильтра -->
+        <form action="https://echo.htmlacademy.ru" method="get">
+            <fieldset>
+                <legend>Инфраструктура:</legend>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="pool" id="filter-pool" checked>
+                        <label for="filter-pool">Бассейн</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="parking" id="filter-parking">
+                        <label for="filter-parking">Парковка</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="wi-fi" id="filter-wi-fi">
+                        <label for="filter-wi-fi">Wi-Fi</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>Тип жилья:</legend>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="hotel" id="filter-hotel" checked>
+                        <label for="filter-hotel">Гостиница</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="motel" id="filter-motel" checked>
+                        <label for="filter-motel">Мотель</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="apartmens" id="filter-apartmens" checked>
+                        <label for="filter-apartmens">Апартаменты</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <label for="cost">Стоимость в сутки (р):</label>
+            <p>от 0</p>
+            <p>до 3000</p>
+            <input type="range" name="cost" id="cost" min="0" max="3000" step="1000" value="3000">
+
+            <button type="submit">Показать</button>            
+        </form>
+        <!--Форма сортировки-->
+        <form action="https://echo.htmlacademy.ru" method="get">
+            <h2>Найдено</h2>
+            <p>Найдено: 3</p>
+            <fieldset>
+                <legend>Сортировка:</legend>
+                <ul>
+                    <li>
+                        <input type="radio" name="sorting" id="price" value="price" checked>
+                        <label for="price">По цене</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="sorting" id="type" value="type">
+                        <label for="type">По типу</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="sorting" id="rating" value="rating">
+                        <label for="rating">По рейтингу</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <!--Две кнопки, сортировка по убыванию/возрастанию-->
+            </fieldset>
+        </form>
+
     </section>
 
     <section>
@@ -66,7 +134,7 @@
                 <h3>Villas At Poco Diablo</h3>
                 <img src="img/foto_apartments.jpg" width="135px" height="90px" alt="Villas At Poco Diablo">
                 <p>
-                    Аппартаменты<br>
+                    Апартаменты<br>
                     <button type="button">Подробнее</button> 
                 </p>
                 <p>
