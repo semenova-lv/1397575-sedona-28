@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>HTML Academy: Седона</title>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
 
 <header>
-    <nav>
-        <a>
+    <nav class="main-navigation">
+        <a class="navigation-logo">
             <img src="img/logo.svg" width="138px" height="70px" alt="Седона">
         </a>
-
-        <ul>
+        
+        <ul class="site-navigation">
             <li><a href="#">Информация</a></li>
             <li><a href="#">Фото и видео</a></li>
             <li><a href="#">Карта штата</a></li>
@@ -22,19 +24,24 @@
 </header>
 
 <main>
-    <h1>Седона</h1>
-    <p>Седона - небольшой городок в Аризоне, заслуживающий большего!</p>
+
+    <section class="backgraund">
+        <img src="img/welcome.svg">
+    </section>
+
+    <h1 class="visually-hidden">Седона</h1>
+    <p class="advantages-item">Седона - небольшой городок в Аризоне, заслуживающий большего!</p>
 
     <section class="advantages">
-        <h2>Преимущества</h2>
+        <h2 class="visually-hidden">Преимущества</h2>
         <p>Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
-        <section class="advantages-1">
+        <section class="advantages-first">
                 <h3>Настоящий городок</h3>
                 <p>-№1-</p>
                 <p>Седона - не аттракцион для туриста, там течет своя жизнь</p>
                 <img src="img/image1.jpg" width="800px" height="256px" alt="Городок Седона">
         </section>
-        <section class="advantages-2">
+        <section class="advantages-second">
                 <img src="img/image2.jpg" width="800px" height="256px" alt="Мост дьявола">
                 <h3>Там есть мост дьявола</h3>
                 <p>-№2-</p>
@@ -42,7 +49,7 @@
         </section>
 
         <section class="advantages-other">
-            <ul>
+            <ul class="advantages-other-list">
                 <li>
                     <h3>Небольшая площадь</h3>
                     <p>-№3-</p>
@@ -63,8 +70,8 @@
     </section>
 
     <section class="offer">
-        <h2>Предложения-реклама</h2>
-        <ul>
+        <h2 class="visually-hidden">Предложения-реклама</h2>
+        <ul class="offer-list">
             <li>
                 <!--Здесь будет иконка "Жилье"-->
                 <h3>Жилье</h3>
@@ -83,67 +90,67 @@
         </ul>
     </section>
 
-    <section>
+    <section class="appoinment">
         <h2>Заинтересовались?</h2>
-        <p>Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
-        <button type="button">Поиск гостиницы в Седоне</button>
+        <p class="appoinment-info">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+        <button class="button search" type="button"><span>Поиск гостиницы в Седоне</span></button>
 
-        <form action="https://echo.htmlacademy.ru" method="post">
-            <p>
-                <label for="date-arrival">Дата заезда</label>
+        <form class="appoinment-form" action="https://echo.htmlacademy.ru" method="post">
+            <p class="appoinment-item">
+                <label for="date-arrival">Дата заезда:</label>
                 <input id="date-arrival" type="text" name="date-arrival" value="24 апреля 2017">
             </p>
-            <p>
-                <label for="date-departure">Дата выезда</label>
+            <p class="appoinment-item">
+                <label for="date-departure">Дата выезда:</label>
                 <input id="date-departure" type="text" name="date-departure" value="4 июля 2017">
             </p>
-            <p>
-                <label for="amount-of-adults">Взрослые</label>
-                <input id="amount-of-adults" type="number" name="amount-of-adults" value="2" min="1" step="1">
+            <p class="appoinment-item">
+                <label for="amount-of-adults">Взрослые:</label>
+                <input class="amount" id="amount-of-adults" type="number" name="amount-of-adults" value="2" min="1" step="1">
             </p>
-            <p>
-                <label for="amount-of-children">Дети</label>
-                <input id="amount-of-children" type="number" name="amount-of-children" value="0" min="0" step="1">
+            <p class="appoinment-item">
+                <label for="amount-of-children">Дети:</label>
+                <input class="amount" id="amount-of-children" type="number" name="amount-of-children" value="0" min="0" step="1">
             </p>
-            <button type="submit">Найти</button>
+            <button class="button to-find" type="submit"><span>Найти<span></button>
         </form>
     </section>
     
 </main>
 
 <footer>
-    <section>
-        <h2>О нас</h2>
+    <section class="contacts">
+        <h2 class="visually-hidden">О нас</h2>
         <a href="#">#VISITSEDONA</a>
         <p>
             Тел: +7(495) 666-01-66
         </p>
     </section>
 
-    <section>
-        <h2>Давайте дружить</h2>
-        <ul>
+    <section class="social">
+        <h2 class="visually-hidden">Давайте дружить</h2>
+        <ul class="social-list">
             <li>
-                <a href="#">
-                    <img src="img/twitter.svg" width="17px" height="17px" alt="Твиттер">Твиттер
+                <a class="social-button" href="#">
+                    <img src="img/twitter.svg" width="17px" height="17px" alt="Твиттер">
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img src="img/fb-icon.svg" width="12px" height="22px" alt="Фейсбук">Фейсбук
+                <a class="social-button" href="#">
+                    <img src="img/fb-icon.svg" width="12px" height="22px" alt="Фейсбук">
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <img src="img/youtube.svg" width="20px" height="16px" alt="YouTube">YouTube
+                <a class="social-button" href="#">
+                    <img src="img/youtube.svg" width="20px" height="16px" alt="YouTube">
                 </a>
             </li>
         </ul>
     </section>
 
-    <section>
+    <section class="copyright">
         <a href="https://htmlacademy.ru/intensive/htmlcss">Website by
-            <img src="img/logo-htmlacademy.svg" width="115px" height="41px" alt="HTML Academy">
+            <div class="copyright-logo"></div>
         </a>
     </section>
 

@@ -1,0 +1,398 @@
+
+
+
+@font-face {
+    font-family: PT Sans;
+    src: url("/css/fonts/ptsans.woff2"),
+         url("/css/fonts/ptsans.woff");
+    font-weight: 400;    
+    font-style: normal;
+}
+
+@font-face {
+    font-family: PT Sans;
+    src: url("/css/fonts/ptsansbold.woff2"),
+         url("/css/fonts/ptsansbold.woff");
+    font-weight: 700;    
+    font-style: normal;
+}
+
+/*Variables*/
+
+:root {
+    --basic-black: #000000;
+    --darkgray: #333333;
+    --gray: #888888;
+    --lightgray: #eeeeee;
+    --extra-lightgray: #f2f2f2;
+    --basic-white: #ffffff;
+    --aquamarine: #81b3d2;
+    --darkaquamarine: #669EC0;
+    --extra-darkaquamarine: #5496BD;
+    --coffee: #766357;
+    --darkcoffee: #604E43;
+    --extra-darkcoffee: #503E33;
+    --footer: rgba(255, 255, 255, 0.9);
+}
+
+/*Global*/
+
+body {
+    min-width: 1220px;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: var(--basic-black);
+    text-transform: uppercase;
+    background-color: var(--gray);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden {
+    display: none
+}
+
+/*Главная навигация*/
+.main-navigation {
+    background-color: var(--basic-white);
+
+}
+
+.site-navigation {
+    list-style: none;     
+}
+
+.site-navigation a {
+    color: var(--basic-black); 
+    line-height: 26px;   
+}
+
+/*Main*/
+
+/*Страница index.html*/
+
+.backgraund {
+    background-image: url("../img/background.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+/*Преимущества*/
+.advantages-item {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+    align-items: center;
+    background-color: var(--basic-white);
+}
+
+.advantages-first,
+.advantages-second {
+    background-color: var(--aquamarine);
+    color: var(--basic-white);
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.advantages-other {
+    background-color: var(--lightgray);
+    color: var(--darkgray); 
+}
+
+.advantages-other h3 {
+    color: var(--basic-black);
+}
+.advantages-other-list {
+    list-style: none;
+}
+
+/*Предложения*/
+.offer {
+    background-color: var(--basic-white);
+}
+
+.offer-list {
+    list-style: none; 
+}
+
+.appoinment {
+    background-color: var(--basic-white);
+}
+
+.appoinment h2 {
+    font-size: 30px;
+    line-height: 24px;
+}
+
+.appoinment-info {
+    line-height: 24px;
+}
+.button {
+    font: inherit;
+    background-color: var(--coffee);
+    color: var(--basic-white);
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+    border: none;
+    text-transform: uppercase;
+}
+
+/*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
+
+.button.search:hover,
+.button.sign-up:hover {
+    background-color: var(--darkcoffee);
+}
+
+.button.search:focus,
+.button.sign-up:focus {
+    background-color: var(--extra-darkcoffee);
+    border: none;
+}
+.button.search:focus span,
+.button.sign-up:focus span {
+    mix-blend-mode: normal;
+    opacity: 0.3;
+}
+
+/*Форма поиска*/
+
+.appoinment-form {
+    text-align: left;
+}
+
+.appoinment-item {
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.appoinment-item input {
+    background-color: var(--extra-lightgray);
+    border: none;
+    line-height: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.appoinment-item input:hover {
+    background-color: #EBEBEB;
+}
+
+.appoinment-item input:focus {
+    background-color: var(--basic-white);
+    border: 2px solid #E5E5E5;
+}
+
+.amount {
+    text-align: center;
+}
+
+/*Кнопки "Найти" и "Подробнее"*/
+
+.button.to-find,
+.button.info {
+    background-color: var(--aquamarine);
+}
+
+.button.to-find:hover,
+.button.info:hover {
+    background-color: var(--darkaquamarine);
+}
+
+.button.to-find:focus,
+.button.info:focus {
+    background-color: var(--extra-darkaquamarine);
+    border: none;
+}
+.button.to-find:focus span,
+.button.info:focus span {
+    opacity: 0.3;
+}
+
+/*Подвал сайта*/
+footer {
+    background-color: var(--footer);
+}
+
+.contacts {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+
+.contacts a {
+    color: var(--basic-black); 
+}
+
+/*Ссылки на социальные сети*/
+.social-list {
+    list-style: none;
+}
+
+.social-button {
+    background-color: var(--aquamarine);
+    color:inherit;
+    text-align: center;
+}
+
+.social-button:hover {
+    background-color: var(--darkaquamarine);
+}
+
+.social-button:focus {
+    background-color: var(--extra-darkaquamarine);
+}
+.social-button:focus img {
+    opacity: 0.3;
+}
+
+/*Ссылка на разработчиков*/
+.copyright a {
+    color: var(--basic-black);  
+    line-height: 26px; 
+
+}
+div.copyright-logo {
+    background-image: url("../img/logo-htmlacademy.svg");
+    width: 115px;
+    height: 41px;
+}
+div.copyright-logo:hover {
+    background-image: url("../img/logo-htmlacademy-hover.svg");
+}
+
+div.copyright-logo:focus {
+    background-image: url("../img/logo-htmlacademy-focus.svg");
+}
+
+
+/*Страница hotels.html*/
+
+/*Фильтр*/
+.filter {
+    background-image: url("../img/background2.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    text-align: left;
+    color: var(--basic-white);
+}
+
+.filter-list {
+    list-style: none;
+}
+
+.filter-title {
+    line-height: 16px;
+    font-weight: bold;
+}
+
+.cost p {
+    border: 2px solid #FFFFFF; 
+}
+
+/*Кнопка "Показать"*/
+.button.show {
+    background:transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: normal;
+}
+.button.show:hover {
+    background-color: var(--basic-white);
+    color: var(--basic-black);
+}
+
+/*Форма сортировки*/
+.form-sort {
+    background-color: var(--basic-white);
+    color: var(--basic-black);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.form-sort p {
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 26px;
+}
+
+.sort-list {
+    list-style: none;
+}
+
+.sort-list input {
+    display: none;
+}
+
+.sort-list label {
+    opacity: 0.3;
+    text-decoration: underline; 
+    text-decoration-style: dotted;
+}
+
+.sort-list label:hover {
+    color: #81B3D2;
+}
+
+.sort-list label:focus {
+    color: #000000;
+    text-decoration: none;
+}
+
+.sort-list label:active {
+    color: #81B3D2;
+    text-decoration: none;
+}
+
+/*Список отелей*/
+.hotels {
+    background-color: var(--basic-white);
+    text-align: left;
+}
+
+.hotels-list {
+    list-style: none;
+}
+
+.hotels-title {
+    color: var(--basic-black);
+    font-size: 21px;
+    line-height: 26px;
+}
+
+.hotels-title:hover {
+    color: var(--aquamarine);
+}
+
+.hotels-title:focus {
+    opacity: 0.3;
+}
+
+.hotels-title p {
+    color: #333333;
+}
+
+.rating {
+    color: #666666;
+    background-color: var(--extra-lightgray);
+}
+
+
