@@ -34,7 +34,10 @@
     --extra-darkcoffee: #503E33;
     --footer: rgba(255, 255, 255, 0.9);
     --basic-white-hover: rgba(255, 255, 255, 0.3);
-
+    --svg-focus: #BDBBBC;
+    --input-hover: #EBEBEB;
+    --input-focus-border: #E5E5E5;
+    --gray-for-rating: #666666;
 }
 
 /*Global*/
@@ -198,12 +201,12 @@ img {
     text-transform: uppercase;
 }
 .appoinment-item input:hover {
-    background-color: #EBEBEB;
+    background-color: var(--input-hover);
 }
 
 .appoinment-item input:focus {
     background-color: var(--basic-white);
-    border: 2px solid #E5E5E5;
+    border: 2px solid var(--input-focus-border);
 }
 
 .amount {
@@ -277,7 +280,7 @@ img {
 }
 
 .copyright svg:focus path {
-    fill: #BDBBBC;
+    fill: var(--svg-focus);
 }
 
 
@@ -302,13 +305,13 @@ img {
 }
 
 .cost p {
-    border: 2px solid #FFFFFF; 
+    border: 2px solid var(--basic-white); 
 }
 
 /*Кнопка "Показать"*/
 .button.show {
     background:transparent;
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--basic-white);
     border-radius: 2px;
     font-size: 14px;
     line-height: 21px;
@@ -348,16 +351,16 @@ img {
 }
 
 .sort-list label:hover {
-    color: #81B3D2;
+    color: var(--aquamarine);
 }
 
 .sort-list label:focus {
-    color: #000000;
+    color: var(--basic-black);
     text-decoration: none;
 }
 
 .sort-list label:active {
-    color: #81B3D2;
+    color: var(--aquamarine);
     text-decoration: none;
 }
 
@@ -402,11 +405,11 @@ img {
 }
 
 .hotels-title p {
-    color: #333333;
+    color: var(--darkgray);
 }
 
 .rating {
-    color: #666666;
+    color: var(--gray-for-rating);
     background-color: var(--extra-lightgray);
 }
 
