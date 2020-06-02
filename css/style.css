@@ -33,6 +33,8 @@
     --darkcoffee: #604E43;
     --extra-darkcoffee: #503E33;
     --footer: rgba(255, 255, 255, 0.9);
+    --basic-white-hover: rgba(255, 255, 255, 0.3);
+
 }
 
 /*Global*/
@@ -61,7 +63,11 @@ img {
 }
 
 .visually-hidden {
-    display: none
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
 }
 
 /*Главная навигация*/
@@ -82,11 +88,12 @@ img {
 /*Main*/
 
 /*Страница index.html*/
-
-.backgraund {
+/*Приветствие на стр*/
+.greeting {
     background-image: url("../img/background.jpg");
     background-position: top center;
     background-repeat: no-repeat;
+    min-height: 510px;
 }
 
 /*Преимущества*/
@@ -104,7 +111,10 @@ img {
     color: var(--basic-white);
 }
 
-h3 {
+.advantages-first h3,
+.advantages-second h3,
+.advantages-other h3,
+.offer h3 {
     font-size: 21px;
     font-weight: bold;
 }
@@ -142,6 +152,8 @@ h3 {
 .appoinment-info {
     line-height: 24px;
 }
+
+/*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
 .button {
     font: inherit;
     background-color: var(--coffee);
@@ -153,22 +165,18 @@ h3 {
     text-transform: uppercase;
 }
 
-/*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
-
-.button.search:hover,
-.button.sign-up:hover {
+.button:hover {
     background-color: var(--darkcoffee);
 }
 
-.button.search:focus,
-.button.sign-up:focus {
+.button:focus {
     background-color: var(--extra-darkcoffee);
-    border: none;
+    color: var(--basic-white-hover);
 }
-.button.search:focus span,
-.button.sign-up:focus span {
-    mix-blend-mode: normal;
-    opacity: 0.3;
+/*Кнопка "Забронировать"*/
+.sign-up {
+    font-size: 14px;
+    line-height: 21px;
 }
 
 /*Форма поиска*/
@@ -202,30 +210,25 @@ h3 {
     text-align: center;
 }
 
-/*Кнопки "Найти" и "Подробнее"*/
+/*Кнопка "Найти"*/
 
-.button.to-find,
-.button.info {
+.button.to-find {
     background-color: var(--aquamarine);
 }
 
-.button.to-find:hover,
-.button.info:hover {
+.button.to-find:hover {
     background-color: var(--darkaquamarine);
 }
 
-.button.to-find:focus,
-.button.info:focus {
+.button.to-find:focus {
     background-color: var(--extra-darkaquamarine);
     border: none;
-}
-.button.to-find:focus span,
-.button.info:focus span {
-    opacity: 0.3;
+    color: var(--basic-white-hover);
 }
 
+
 /*Подвал сайта*/
-footer {
+.main-footer {
     background-color: var(--footer);
 }
 
@@ -263,22 +266,18 @@ footer {
 }
 
 /*Ссылка на разработчиков*/
+
 .copyright a {
     color: var(--basic-black);  
     line-height: 26px; 
 
 }
-div.copyright-logo {
-    background-image: url("../img/logo-htmlacademy.svg");
-    width: 115px;
-    height: 41px;
-}
-div.copyright-logo:hover {
-    background-image: url("../img/logo-htmlacademy-hover.svg");
+.copyright svg:hover path {
+    fill: var(--aquamarine);
 }
 
-div.copyright-logo:focus {
-    background-image: url("../img/logo-htmlacademy-focus.svg");
+.copyright svg:focus path {
+    fill: #BDBBBC;
 }
 
 
@@ -384,6 +383,22 @@ div.copyright-logo:focus {
 
 .hotels-title:focus {
     opacity: 0.3;
+}
+
+/*Подробнее*/
+.more-info {
+    background-color: var(--aquamarine);
+    color: var(--basic-white);
+    font-weight: bold;
+}
+
+.more-info:hover {
+    background-color: var(--darkaquamarine);
+}
+
+.more-info:focus {
+    background-color: var(--extra-darkaquamarine);
+    color: var(--basic-white-hover);
 }
 
 .hotels-title p {
