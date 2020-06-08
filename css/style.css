@@ -2,20 +2,22 @@
 
 
 @font-face {
-    font-family: PT Sans;
-    src: url("/css/fonts/ptsans.woff2"),
-         url("/css/fonts/ptsans.woff");
-    font-weight: 400;    
+    font-family: 'PT Sans';
     font-style: normal;
-}
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'),
+         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+  }
 
-@font-face {
-    font-family: PT Sans;
-    src: url("/css/fonts/ptsansbold.woff2"),
-         url("/css/fonts/ptsansbold.woff");
-    font-weight: 700;    
+  @font-face {
+    font-family: 'PT Sans';
     font-style: normal;
-}
+    font-weight: 700;
+    src: local('PT Sans Bold'), local('PTSans-Bold'),
+         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff') format('woff'), /* Modern Browsers */
+  }
 
 /*Variables*/
 
@@ -26,6 +28,7 @@
     --lightgray: #eeeeee;
     --extra-lightgray: #f2f2f2;
     --basic-white: #ffffff;
+    /*--basic-white-back: rgba(255, 255, 255, 0.2);*/
     --aquamarine: #81b3d2;
     --darkaquamarine: #669EC0;
     --extra-darkaquamarine: #5496BD;
@@ -34,16 +37,18 @@
     --extra-darkcoffee: #503E33;
     --footer: rgba(255, 255, 255, 0.9);
     --basic-white-hover: rgba(255, 255, 255, 0.3);
+    --basic-black-focus: rgba(0, 0, 0, 0.3);
     --svg-focus: #BDBBBC;
     --input-hover: #EBEBEB;
     --input-focus-border: #E5E5E5;
     --gray-for-rating: #666666;
+    --gray-for-sort-button: #CACACA;
 }
 
 /*Global*/
 
 body {
-    min-width: 1220px;
+    min-width: 1280px;
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
@@ -52,7 +57,7 @@ body {
     line-height: 26px;
     color: var(--basic-black);
     text-transform: uppercase;
-    background-color: var(--gray);
+    background-color: var(--extra-lightgray);
     text-align: center;
 }
 
@@ -63,33 +68,103 @@ a {
 img {
     max-width: 100%;
     height: auto;
+    
 }
 
-.visually-hidden {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.page {
+    height: 100%;
+}
+
+.page-body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    align-content: start;
+}
+.main-header {
+    width: 1200px;
+    min-height: 70px;
+    margin: 0 auto;
 }
 
 /*Главная навигация*/
 .main-navigation {
     background-color: var(--basic-white);
+    
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.navigation-logo {
+    position: absolute;
+    margin-left: -69px;
 }
 
 .site-navigation {
-    list-style: none;     
+    list-style: none;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+.move-to-right {
+    margin-left: auto;
 }
 
 .site-navigation a {
     color: var(--basic-black); 
-    line-height: 26px;   
+    line-height: 26px; 
+    
+}
+.site-navigation a:hover {
+    color: var(--aquamarine);
+}
+.site-navigation a:focus {
+    color: var(--basic-black-focus);
 }
 
-/*Main*/
+.site-navigation li:first-child {
+    padding-right: 135px;
+    padding-left: 72px;
+}
 
+.site-navigation li:last-child {
+    padding-left: 147px;
+    padding-right: 72px;
+}
+
+
+/*Main*/
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 /*Страница index.html*/
 /*Приветствие на стр*/
 .greeting {
@@ -97,34 +172,87 @@ img {
     background-position: top center;
     background-repeat: no-repeat;
     min-height: 510px;
+    display:flex;              
+    justify-content: center; 
+    align-items: center;
+    margin-top: -15px;
+
 }
 
+
 /*Преимущества*/
-.advantages-item {
+.main-content {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.advantages-title { /*Нужно доработать*/
+    width: 600px;
+    min-height: 216px;
+    padding-left: 300px;
+
+}
+.advantages-title p:first-child {
     font-weight: bold;
     font-size: 21px;
-    line-height: 26px;
-    align-items: center;
-    background-color: var(--basic-white);
+    line-height: 26px; 
+    padding-top: 22px;
+    padding-bottom: 22px;
 }
 
 .advantages-first,
 .advantages-second {
     background-color: var(--aquamarine);
+
+    display: flex;
+    justify-content: space-between;
+    height: 256px;
+}
+.advantages-description {
     color: var(--basic-white);
+    width: 300px;
+    line-height: 21px;
+    margin: 0 auto;
+    padding-top: 47px;
+ 
+    
 }
 
-.advantages-first h3,
-.advantages-second h3,
-.advantages-other h3,
-.offer h3 {
-    font-size: 21px;
+.advantages-description p {
+    margin: 0;
+    padding-top: 25px;
+
+}
+
+.advantages-second .advantages-description{
+    padding-top: 50px;
+}
+
+.advantages-first {
+    order: 1;
+}
+.advantages-second {
+    order: 3;
+}
+
+.advantages-item {
+    width: 300px;
+    padding-top: 47px;
+
+}
+
+h3.title {
     font-weight: bold;
+    font-size: 21px;
+    margin: 0;
 }
 
 .advantages-other {
+    margin: 0;
     background-color: var(--lightgray);
-    color: var(--darkgray); 
+    color: var(--darkgray);
+    order: 4; 
 }
 
 .advantages-other h3 {
@@ -132,28 +260,75 @@ img {
 }
 .advantages-other-list {
     list-style: none;
+    line-height: 21px;
+    min-height: 255px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+.advantages-other-list p {
+    margin: 0;
+    padding-top: 25px;
 }
 
 /*Предложения*/
 .offer {
+    min-height: 330px;
     background-color: var(--basic-white);
+    order: 2;
+
 }
 
 .offer-list {
+    margin: 0;
     list-style: none; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 0;
+    margin-top: 60px;
+
+}
+
+.offer-item {
+    width: 300px;
+    align-self: center;
+
+}
+.offer-item h3 {
+    font-size: 21px;
+    line-height: 21px;
+    padding-top: 28px;
+    padding-bottom: 25px;
+}
+.offer-item p {
+    margin: 0;
+    line-height: 21px;
 }
 
 .appoinment {
+    position: relative;
     background-color: var(--basic-white);
+    text-align: center;
+    min-height: 290px;
+
 }
 
 .appoinment h2 {
     font-size: 30px;
     line-height: 24px;
+    margin: 0;
+    margin-bottom: 40px;
+    padding-top: 50px;
 }
 
 .appoinment-info {
     line-height: 24px;
+    margin: 0;
+    margin-bottom: 50px;
 }
 
 /*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
@@ -166,6 +341,9 @@ img {
     line-height: 26px;
     border: none;
     text-transform: uppercase;
+    width: 568px;
+    height: 86px;
+
 }
 
 .button:hover {
@@ -176,30 +354,78 @@ img {
     background-color: var(--extra-darkcoffee);
     color: var(--basic-white-hover);
 }
-/*Кнопка "Забронировать"*/
-.sign-up {
-    font-size: 14px;
-    line-height: 21px;
-}
 
 /*Форма поиска*/
 
 .appoinment-form {
-    text-align: left;
+    background-color: var(--basic-white);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -284px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 458px;
+    padding: 55px;
+
+
 }
 
 .appoinment-item {
     font-weight: bold;
     line-height: 26px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.appoinment-item:nth-child(1),
+.appoinment-item:nth-child(2) {
+    width: 100%;
+}
+.appoinment-item:nth-child(3),
+.appoinment-item:nth-child(4) {
+    width: 50%;
+}
+.appoinment-item:nth-child(4) label {
+    padding-left: 53px;
 }
 
 .appoinment-item input {
+    width: 346px;
+    height: 38px;
+    font:inherit;
     background-color: var(--extra-lightgray);
     border: none;
     line-height: 26px;
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.appoinment-item:nth-child(3) input,
+.appoinment-item:nth-child(4) input {
+    width: 114px;
+}
+
+
+.date-arrival,
+.date-departure {
+    position: relative;
+}
+.date-arrival::before,
+.date-departure::before {
+    content: "";
+    position: absolute;
+    background-image: url("../img/calendar.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 23px;
+    left: 428px;
+
+}
+
 .appoinment-item input:hover {
     background-color: var(--input-hover);
 }
@@ -217,6 +443,9 @@ img {
 
 .button.to-find {
     background-color: var(--aquamarine);
+    width: 458px;
+    height: 58px;
+    margin-top: 24px;
 }
 
 .button.to-find:hover {
@@ -229,10 +458,28 @@ img {
     color: var(--basic-white-hover);
 }
 
+.map {
+    background-image: url("../img/map.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1200px;
+    height: 594px;
+}
+
 
 /*Подвал сайта*/
 .main-footer {
     background-color: var(--footer);
+    margin-top: -120px;
+    width: 1200px;
+    min-height: 120px;
+    margin: 0 auto;
+}
+
+.main-footer .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .contacts {
@@ -240,21 +487,43 @@ img {
     font-size: 21px;
     line-height: 26px;
     text-transform: uppercase;
+    margin-top: 23px;
+}
+
+.contacts p {
+    margin: 0;
+    padding-top: 9px;
 }
 
 .contacts a {
     color: var(--basic-black); 
+
 }
 
 /*Ссылки на социальные сети*/
+.social {
+    justify-self: center;
+    text-align: center;
+}
 .social-list {
+    width: 150px;
     list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
 }
 
 .social-button {
     background-color: var(--aquamarine);
     color:inherit;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 48px;
+    margin-top: 36px;
+    margin-left: 6px;
+    
 }
 
 .social-button:hover {
@@ -272,7 +541,10 @@ img {
 
 .copyright a {
     color: var(--basic-black);  
-    line-height: 26px; 
+    line-height: 26px;
+    display: inline-block;
+    margin-top: 41px;
+    vertical-align: center; 
 
 }
 .copyright svg:hover path {
@@ -293,19 +565,140 @@ img {
     background-repeat: no-repeat;
     text-align: left;
     color: var(--basic-white);
+    margin-top: -14px;
+}
+
+.form-filter {
+    width: 1054px;
+    padding-top: 27px;
+    margin-left: 72px;
+    display: flex;
+    
 }
 
 .filter-list {
     list-style: none;
+    margin: 0;
+    padding-right: 117px;
+
+
 }
 
-.filter-title {
+.filter-item {
+    padding: 0;
+    margin: 0;
+    border: none;
+
+}
+
+.filter-item.move-to-right{
+    margin-left: auto;
+
+}
+
+.form-filter .filter-title {
     line-height: 16px;
     font-weight: bold;
+    padding-bottom: 25px;
+
 }
 
-.cost p {
-    border: 2px solid var(--basic-white); 
+.filter-option label {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    padding-bottom: 25px;
+    
+}
+
+.input-checkbox + label::before,
+.input-checkbox:hover + label::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 5px;
+    width: 23px;
+    height: 23px;
+    background-image: url("../img/checkbox-off.svg");
+}
+
+.input-checkbox:checked + label::before,
+.input-checkbox:checked:hover + label::before {
+    width: 27px;
+    height: 23px;
+    background-image: url("../img/checkbox-on.svg");
+}
+.input-checkbox:disabled + label::before {
+    background-image: url("../img/disabled-off.svg");
+}
+.input-checkbox:checked:disabled + label::before {
+    background-image: url("../img/disabled-on.svg");
+}
+
+.range-filter {
+    width: 317px;
+    margin-top: 20px;
+
+}
+
+.range-controls {
+    position: relative;
+    
+    padding-top: 20px;
+    padding-bottom: 33px;
+}
+
+.range-controls .scale {
+    height: 2px;
+    background-color: var(--basic-white-hover);
+}
+
+.range-controls .bar {
+    width: 252px;
+    height: 2px;
+    background-color: var(--basic-white);
+}
+
+.range-controls .toggle {
+    position: absolute;
+    background-image: url("../img/filter-button.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 23px;
+    padding: 0;
+    top: 12px;
+    cursor: pointer;
+}
+.range-controls .toggle-max {
+    left: 252px;
+}
+
+.price-controls {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid var(--basic-white);
+    border-radius: 2px;
+    height: 36px;
+    width: 317px;
+
+}
+.min-price,
+.max-price {
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.delimiter {
+    position: absolute;
+    background-color: var(--basic-white);
+    width: 2px;
+    height: 22px;
 }
 
 /*Кнопка "Показать"*/
@@ -316,6 +709,8 @@ img {
     font-size: 14px;
     line-height: 21px;
     font-weight: normal;
+    width: 137px;
+    height: 36px;
 }
 .button.show:hover {
     background-color: var(--basic-white);
@@ -328,64 +723,172 @@ img {
     color: var(--basic-black);
     font-size: 12px;
     line-height: 18px;
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    padding-left: 73px;
+    min-height: 86px;
+}
+.form-sort fieldset {
+    border: none;
 }
 
 .form-sort p {
     font-weight: bold;
     font-size: 21px;
     line-height: 26px;
+    margin: 0;
+    min-width: 117px;
+}
+.sort-of-type {
+    display: flex;
 }
 
 .sort-list {
     list-style: none;
+    display: flex;
+
+    padding: 0;    
+}
+.sort-item {
+    margin: 0;
+    padding-right: 32px;
 }
 
-.sort-list input {
-    display: none;
+.sort-item a {
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--basic-black-focus);
 }
 
-.sort-list label {
-    opacity: 0.3;
-    text-decoration: underline; 
-    text-decoration-style: dotted;
-}
-
-.sort-list label:hover {
+.sort-item:hover a {
     color: var(--aquamarine);
 }
 
-.sort-list label:focus {
+.sort-item:focus a {
     color: var(--basic-black);
     text-decoration: none;
 }
 
-.sort-list label:active {
+.sort-item:active a {
     color: var(--aquamarine);
     text-decoration: none;
 }
+
+.sort-button {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    padding-right: 73px;
+    }
+
+.button-down-dir {
+    padding-left: 12px;
+
+}
+
+.button-up-dir path,
+.button-down-dir path {
+    fill: var(--gray-for-sort-button);
+}
+
+.button-up-dir:hover path,
+.button-down-dir:hover path {
+    fill: var(--basic-black);
+}
+
+.button-up-dir:active path,
+.button-down-dir:active path {
+    fill: var(--aquamarine);
+}
+
 
 /*Список отелей*/
 .hotels {
     background-color: var(--basic-white);
     text-align: left;
+   
+
 }
 
 .hotels-list {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+
 }
 
+.hotels-item {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-left: 73px;
+    display: grid;
+    grid-template-columns: 135px 29px 110px 6px 142px 522px 110px;
+    grid-template-rows: 30px 30px 30px;
+    border-top: 1px solid var(--input-focus-border);  
+}
+
+.hotels-item:last-child {
+    padding-bottom: 31px;
+    border-bottom: 1px solid var(--input-focus-border);  
+}
+
+.hotels-foto {
+    grid-row: 1/-1;
+    grid-column: 1/2;
+}
 .hotels-title {
+    margin: 0;
+    grid-row: 1/2;
+    grid-column: 3/6;
+
+
+} 
+
+.hotels-title a {
     color: var(--basic-black);
     font-size: 21px;
     line-height: 26px;
 }
 
-.hotels-title:hover {
+.hotels-title:hover a {
     color: var(--aquamarine);
 }
 
-.hotels-title:focus {
+.hotels-title:focus a {
     opacity: 0.3;
+}
+.type-hotels {
+    margin: 0;
+    grid-row: 2/-1;
+    grid-column: 3/4; 
+    align-self: end;
+}
+.hotels-price {
+    margin: 0;
+    grid-row: 2/-1;
+    grid-column: 5/6;
+    align-self: end;
+}
+
+.star-hotels {
+    grid-row: 1/2;
+    grid-column: -1/-2;
+    justify-self: end;
+}
+
+.rating {
+    margin: 0;
+    grid-row: -1/-2;
+    grid-column: -1/-2;
+    display: inline-block;
+    width: 110px;
+    height: 27px;
+    text-align: center;
+    color: var(--gray-for-rating);
+    background-color: var(--extra-lightgray);
+    align-self: end;
 }
 
 /*Подробнее*/
@@ -393,6 +896,11 @@ img {
     background-color: var(--aquamarine);
     color: var(--basic-white);
     font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 110px;
+    height: 27px;
+    margin-top: 15px;
 }
 
 .more-info:hover {
@@ -404,13 +912,19 @@ img {
     color: var(--basic-white-hover);
 }
 
+/*Кнопка "Забронировать"*/
+.sign-up {
+    font-size: 14px;
+    line-height: 21px;
+    width: 142px;
+    height: 27px;
+    margin-top: 15px;
+}
+
 .hotels-title p {
     color: var(--darkgray);
 }
 
-.rating {
-    color: var(--gray-for-rating);
-    background-color: var(--extra-lightgray);
-}
+
 
 
