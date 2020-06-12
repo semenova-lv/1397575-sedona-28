@@ -43,6 +43,7 @@
     --input-focus-border: #E5E5E5;
     --gray-for-rating: #666666;
     --gray-for-sort-button: #CACACA;
+    --basic-button-step: #a9a9a9;
 }
 
 /*Global*/
@@ -91,16 +92,26 @@ input[type="radio"].visually-hidden {
 }
 
 .page-body {
-    min-height: 100%;
+    height: 100%;
+    background-color: var(--extra-lightgray);
+    
+
+}
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: var(--basic-white);
+    box-shadow: 0px 5px 15px rgba(0, 1, 1, 0.2);
+    background-position: top center;
+
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     align-content: start;
 }
+
 .main-header {
-    width: 1200px;
     min-height: 70px;
-    margin: 0 auto;
-}
+    }
 
 /*Главная навигация*/
 .main-navigation {
@@ -113,15 +124,19 @@ input[type="radio"].visually-hidden {
     margin: 0;
     padding: 0;
     list-style: none;
+
 }
+
 .navigation-logo {
     position: absolute;
+    left: 50%;
     margin-left: -69px;
 }
 
 .site-navigation {
     list-style: none;
     font-weight: bold;
+    
     display: flex;
     flex-wrap: wrap;
     
@@ -132,14 +147,24 @@ input[type="radio"].visually-hidden {
 
 }
 
-.move-to-right {
-    margin-left: auto;
+.to-right {
+    margin-left: auto; 
+}
+.site-navigation li {
+    width: 228px;
+}
+.left-navigation{
+    text-align: start;
+}
+
+.right-navigation {
+    text-align: end;
 }
 
 .site-navigation a {
     color: var(--basic-black); 
     line-height: 26px; 
-    
+     
 }
 .site-navigation a:hover {
     color: var(--aquamarine);
@@ -148,24 +173,27 @@ input[type="radio"].visually-hidden {
     color: var(--basic-black-focus);
 }
 
-.site-navigation li:first-child {
-    padding-right: 135px;
-    padding-left: 72px;
-}
-
-.site-navigation li:last-child {
-    padding-left: 147px;
-    padding-right: 72px;
+.site-navigation-current a,
+.site-navigation-current a:hover,
+.site-navigation-current a:focus {
+    color: var(--coffee);
+    pointer-events: none;
 }
 
 
-/*Main*/
-.container {
-    width: 1200px;
+.container-1 {          /*Центрирование*/
+    width: 1054px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 73px;
 }
 /*Страница index.html*/
+/*Main*/
+.container-2 {          /*Блок во всю ширину страницы*/        
+    width: 1200px;
+    margin: 0 auto;
+
+}
+
 /*Приветствие на стр*/
 .greeting {
     background-image: url("../img/background.jpg");
@@ -187,10 +215,10 @@ input[type="radio"].visually-hidden {
     
 }
 
-.advantages-title { /*Нужно доработать*/
-    width: 600px;
+.advantages-title { 
+    max-width: 600px;
     min-height: 216px;
-    padding-left: 300px;
+    margin: 0 auto;
 
 }
 .advantages-title p:first-child {
@@ -275,45 +303,49 @@ h3.title {
 
 /*Предложения*/
 .offer {
-    min-height: 330px;
-    background-color: var(--basic-white);
     order: 2;
 
 }
 
 .offer-list {
+    min-height: 330px;
     margin: 0;
+    padding: 0;
     list-style: none; 
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
-    padding: 0;
-    margin-top: 60px;
+    flex-wrap: wrap;
+    align-items: flex-end;
 
 }
 
 .offer-item {
     width: 300px;
-    align-self: center;
+    padding-bottom: 82px;
+
 
 }
 .offer-item h3 {
     font-size: 21px;
     line-height: 21px;
-    padding-top: 28px;
-    padding-bottom: 25px;
+    padding-bottom: 27px;
+    padding-top: 20px;
+
 }
 .offer-item p {
     margin: 0;
     line-height: 21px;
+    
 }
 
 .appoinment {
     position: relative;
-    background-color: var(--basic-white);
-    text-align: center;
     min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
 }
 
@@ -321,28 +353,35 @@ h3.title {
     font-size: 30px;
     line-height: 24px;
     margin: 0;
-    margin-bottom: 40px;
-    padding-top: 50px;
+
 }
 
 .appoinment-info {
     line-height: 24px;
     margin: 0;
-    margin-bottom: 50px;
+    margin-top: 33px;
+
+}
+.search {
+    width: 568px;
+    height: 86px;
+    align-self: center;
+    margin-top: 45px;
+
 }
 
 /*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
 .button {
+
     font: inherit;
-    background-color: var(--coffee);
-    color: var(--basic-white);
     font-weight: bold;
     font-size: 21px;
     line-height: 26px;
+
+    background-color: var(--coffee);
+    color: var(--basic-white);
     border: none;
     text-transform: uppercase;
-    width: 568px;
-    height: 86px;
 
 }
 
@@ -358,23 +397,28 @@ h3.title {
 /*Форма поиска*/
 
 .appoinment-form {
-    background-color: var(--basic-white);
     position: absolute;
+    width: 568px;
     top: 100%;
     left: 50%;
     margin-left: -284px;
+
+    background-color: var(--basic-white);
+    box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
+}
+.appoinment-main {
     display: flex;
     flex-wrap: wrap;
     width: 458px;
     padding: 55px;
-
-
 }
 
 .appoinment-item {
+    position: relative;
     font-weight: bold;
     line-height: 26px;
     margin: 0;
+
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -393,37 +437,22 @@ h3.title {
 }
 
 .appoinment-item input {
-    width: 346px;
+    width: 334px;
     height: 38px;
+    padding: 0;
     font:inherit;
     background-color: var(--extra-lightgray);
     border: none;
     line-height: 26px;
     font-weight: bold;
     text-transform: uppercase;
+    padding-left: 12px;
 }
 
 .appoinment-item:nth-child(3) input,
 .appoinment-item:nth-child(4) input {
     width: 114px;
-}
-
-
-.date-arrival,
-.date-departure {
-    position: relative;
-}
-.date-arrival::before,
-.date-departure::before {
-    content: "";
-    position: absolute;
-    background-image: url("../img/calendar.svg");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    width: 21px;
-    height: 23px;
-    left: 428px;
-
+    padding: 0;
 }
 
 .appoinment-item input:hover {
@@ -435,8 +464,74 @@ h3.title {
     border: 2px solid var(--input-focus-border);
 }
 
+.calendar {
+    content: "";
+    position: absolute;
+    color:inherit;  
+    background:transparent;
+    width: 21px;
+    height: 23px;
+    text-align: center;
+    padding: 0;
+    left: 429px;
+    border: none;
+    outline: none;
+}
+.calendar:hover path {
+    fill: var(--basic-black);
+}
+
+.calendar:active path {
+    fill: var(--aquamarine);
+    border: none;
+}
+
 .amount {
     text-align: center;
+}
+.button-step-down,
+.button-step-up {
+    position: absolute;
+    content: "";
+    background-color: var(--basic-button-step);
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.button-step-down {
+    left: 125px;
+    width: 12px;
+    height: 3px;
+}
+
+.button-step-up::before,
+.button-step-up::after {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 3px;
+    background-color: var(--basic-button-step);
+    padding: 0;
+    border: none;
+    left: 200px;
+    top: -2px;
+}
+.button-step-up::after {
+    transform: rotate(90deg);
+}
+
+.button-step-down:hover,
+.button-step-up:hover::before,
+.button-step-up:hover::after {
+    background-color: var(--basic-black);
+}
+
+.button-step-down:active,
+.button-step-up:active::before,
+.button-step-up:active::after {
+    background-color: var(--aquamarine);
+    outline: none;
 }
 
 /*Кнопка "Найти"*/
@@ -448,18 +543,20 @@ h3.title {
     margin-top: 24px;
 }
 
-.button.to-find:hover {
+.button.to-find:hover,
+.button.to-find:focus {
     background-color: var(--darkaquamarine);
 }
 
-.button.to-find:focus {
+.button.to-find:active {
     background-color: var(--extra-darkaquamarine);
     border: none;
     color: var(--basic-white-hover);
+    outline: none;
 }
 
 .map {
-    background-image: url("../img/map.jpg");
+    background-image: url("../img/map.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 1200px;
@@ -468,17 +565,13 @@ h3.title {
 
 
 /*Подвал сайта*/
-.main-footer {
+.main-footer .container-1 {
     background-color: var(--footer);
     margin-top: -120px;
-    width: 1200px;
     min-height: 120px;
-    margin: 0 auto;
-}
-
-.main-footer .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 35px;
 
 }
 
@@ -503,14 +596,16 @@ h3.title {
 /*Ссылки на социальные сети*/
 .social {
     justify-self: center;
-    text-align: center;
+    align-self: center;
 }
 .social-list {
-    width: 150px;
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 6px;
+   
 }
 
 .social-button {
@@ -521,37 +616,41 @@ h3.title {
     justify-content: center;
     width: 46px;
     height: 48px;
-    margin-top: 36px;
-    margin-left: 6px;
     
 }
 
-.social-button:hover {
+.social-button:hover,
+.social-button:focus {
     background-color: var(--darkaquamarine);
 }
 
-.social-button:focus {
+.social-button:active {
     background-color: var(--extra-darkaquamarine);
 }
-.social-button:focus img {
+.social-button:active img {
     opacity: 0.3;
 }
 
 /*Ссылка на разработчиков*/
+.copyright {
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+}
 
-.copyright a {
+.copyright p {
     color: var(--basic-black);  
     line-height: 26px;
-    display: inline-block;
-    margin-top: 41px;
-    vertical-align: center; 
+    margin: 0;
+    padding-right: 8px;
 
 }
 .copyright svg:hover path {
     fill: var(--aquamarine);
 }
 
-.copyright svg:focus path {
+.copyright svg:active path {
     fill: var(--svg-focus);
 }
 
@@ -569,38 +668,28 @@ h3.title {
 }
 
 .form-filter {
-    width: 1054px;
-    padding-top: 27px;
-    margin-left: 72px;
+    min-height: 217px;
     display: flex;
-    
-}
-
-.filter-list {
-    list-style: none;
-    margin: 0;
-    padding-right: 117px;
-
-
 }
 
 .filter-item {
     padding: 0;
     margin: 0;
     border: none;
+    padding-right: 117px;
 
 }
 
-.filter-item.move-to-right{
-    margin-left: auto;
-
-}
-
-.form-filter .filter-title {
-    line-height: 16px;
+.filter-title {
+    font-size: 16px;
     font-weight: bold;
-    padding-bottom: 25px;
+    padding-top: 22px;
+    padding-bottom: 22px;
 
+}
+.filter-list {
+    list-style: none;
+    margin: 0;
 }
 
 .filter-option label {
@@ -608,7 +697,7 @@ h3.title {
     display: block;
     cursor: pointer;
     user-select: none;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     
 }
 
@@ -617,7 +706,7 @@ h3.title {
     content: "";
     position: absolute;
     left: -40px;
-    top: 5px;
+    top: 0;
     width: 23px;
     height: 23px;
     background-image: url("../img/checkbox-off.svg");
@@ -636,9 +725,19 @@ h3.title {
     background-image: url("../img/disabled-on.svg");
 }
 
+.filter-item.move-to-right {
+    margin-left: auto;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    
+}
+.filter-item.move-to-right .filter-title {
+    padding-bottom: 10px;
+}
 .range-filter {
     width: 317px;
-    margin-top: 20px;
+
 
 }
 
@@ -682,8 +781,8 @@ h3.title {
     align-items: center;
     border: 2px solid var(--basic-white);
     border-radius: 2px;
-    height: 36px;
-    width: 317px;
+    height: 32px;
+    width: 313px;
 
 }
 .min-price,
@@ -711,6 +810,8 @@ h3.title {
     font-weight: normal;
     width: 137px;
     height: 36px;
+    padding: 0;
+    margin: 0 auto;
 }
 .button.show:hover {
     background-color: var(--basic-white);
@@ -723,9 +824,8 @@ h3.title {
     color: var(--basic-black);
     font-size: 12px;
     line-height: 18px;
-    display: grid;
-    grid-template-columns: min-content 1fr min-content;
-    padding-left: 73px;
+    display: flex;
+    align-items: center;
     min-height: 86px;
 }
 .form-sort fieldset {
@@ -740,46 +840,62 @@ h3.title {
     min-width: 117px;
 }
 .sort-of-type {
-    display: flex;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: min-content 1fr;
 }
 
 .sort-list {
     list-style: none;
     display: flex;
-
+    margin: 0;
     padding: 0;    
 }
 .sort-item {
     margin: 0;
     padding-right: 32px;
 }
-
-.sort-item a {
+p.sort-title {
+    font-style: normal;
+    font-weight: normal;
     font-size: 12px;
     line-height: 18px;
+    padding-left: 46px;
+}
+
+.button-sort-of-type {
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    background: transparent;
     color: var(--basic-black-focus);
+    border: none;
+    border-bottom: 1px dotted var(--aquamarine);
+    outline: none;
+    cursor: pointer;
 }
 
-.sort-item:hover a {
+.button-sort-of-type:hover {
     color: var(--aquamarine);
 }
 
-.sort-item:focus a {
+.button-sort-of-type:focus {
+    color: var(--aquamarine);
+
+}
+
+.button-sort-of-type:active {
     color: var(--basic-black);
-    text-decoration: none;
-}
+    border: none;
 
-.sort-item:active a {
-    color: var(--aquamarine);
-    text-decoration: none;
 }
 
 .sort-button {
     list-style: none;
     padding: 0;
+
     display: flex;
-    padding-right: 73px;
-    }
+}
 
 .button-down-dir {
     padding-left: 12px;
@@ -806,7 +922,7 @@ h3.title {
 .hotels {
     background-color: var(--basic-white);
     text-align: left;
-   
+    min-height: 575px; /*Придумать*/
 
 }
 
@@ -822,7 +938,6 @@ h3.title {
 .hotels-item {
     padding-bottom: 30px;
     padding-top: 30px;
-    padding-left: 73px;
     display: grid;
     grid-template-columns: 135px 29px 110px 6px 142px 522px 110px;
     grid-template-rows: 30px 30px 30px;
