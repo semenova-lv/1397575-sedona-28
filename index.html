@@ -8,7 +8,7 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body class="page-body">
-<div class="container">
+<div class="main-container-page">
 <header class="main-header">
     <nav class="container-1 main-navigation">
             <a class="navigation-logo">
@@ -25,7 +25,7 @@
     </nav>    
 </header>
 
-<main class="container-2">
+<main class="container-2 main-content-page">
 
     <section class="greeting">
         <img src="img/welcome.svg">
@@ -42,7 +42,7 @@
             <div class="advantages-description">
                 <h3 class="title">Настоящий<br>городок</h3>
                 <p>&mdash; №1 &mdash;</p>
-                <p>Седона&nbsp;&mdash;не аттракцион для туриста, там течет своя жизнь</p>
+                <p>Седона&mdash;не аттракцион для туриста, там<br>течет своя жизнь</p>
             </div>
             <div class="advantages-foto">
                 <img src="img/image1.jpg" width="800" height="256" alt="Городок Седона">
@@ -55,7 +55,7 @@
             <div class="advantages-description">
                 <h3 class="title">Там есть<br>мост дьявола</h3>
                 <p>&mdash; №2 &mdash;</p>
-                <p>Да, по нему можно пройти! Если конечно Вы осмелитесь</p>
+                <p>Да, по нему можно пройти! Если конечно<br>Вы осмелитесь</p>
             </div>
         </section>
 
@@ -64,17 +64,17 @@
                 <li class="advantages-item">
                     <h3 class="title">Небольшая<br>площадь</h3>
                     <p>&mdash; №3 &mdash;</p>
-                    <p>Все достопримечательности находятся очень близко</p>
+                    <p>Все достопримечательности<br>находятся очень близко</p>
                 </li>
                 <li class="advantages-item">
                     <h3 class="title">Красивая<br>дорога</h3>
                     <p>&mdash; №4 &mdash;</p>
-                    <p>Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
+                    <p>Ехать в Седону из Лас-Вегаса совсем<br>не скучно!</p>
                 </li>
                 <li class="advantages-item">
                     <h3 class="title">Мало<br>туристов</h3>
                     <p>&mdash; №5 &mdash;</p>
-                    <p>Большинство едет в Гранд Каньон и толпится там</p>
+                    <p>Большинство едет в Гранд Каньон<br>и толпится там</p>
                 </li>
             </ul>
         </section>
@@ -111,14 +111,14 @@
             <div class="appoinment-main">
                 <p class="appoinment-item">
                     <label class="date-arrival" for="date-arrival">Дата заезда:</label>
-                    <input id="date-arrival" type="text" name="date-arrival" value="24 апреля 2017">
+                    <input class="date-arrival-choice" id="date-arrival" type="text" name="date-arrival" value="24 апреля 2017">
                     <button class="calendar" type="button">
                         <svg width="21" height="23" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.406 3.025h2.845c.966 0 1.749.822 1.749 1.837v16.302C21 22.179 20.217 23 19.251 23H1.75C.784 23 0 22.179 0 21.164V4.862c0-1.015.784-1.837 1.75-1.837h2.843V1.648c0-.381.294-.689.657-.689.362 0 .656.308.656.689v1.377h3.938V1.648c0-.381.294-.689.657-.689.361 0 .655.308.655.689v1.377h3.938V1.648c0-.381.293-.689.656-.689.362 0 .656.308.656.689v1.377zm3.159 18.459a.448.448 0 00.123-.32h.001V4.862a.449.449 0 00-.437-.459h-2.845v1.378c0 .381-.294.689-.656.689-.363 0-.656-.308-.656-.689V4.403h-3.938v1.378c0 .381-.294.689-.655.689-.363 0-.657-.308-.657-.689V4.403H5.907v1.378c0 .381-.294.689-.656.689-.363 0-.657-.308-.657-.689V4.403H1.75a.45.45 0 00-.438.459v16.302a.45.45 0 00.438.459h17.501a.448.448 0 00.314-.139z" fill="#A9A9A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4.594 9.225h2.625v2.066H4.594V9.225zm0 3.443h2.625v2.067H4.594v-2.067zm2.625 3.444H4.594v2.066h2.625v-2.066zm1.969 0h2.625v2.066H9.188v-2.066zm2.625-3.444H9.188v2.067h2.625v-2.067zM9.188 9.225h2.625v2.066H9.188V9.225zm7.218 6.887h-2.625v2.066h2.625v-2.066zm-2.625-3.444h2.625v2.067h-2.625v-2.067zm2.625-3.443h-2.625v2.066h2.625V9.225z" fill="#A9A9A9"/></svg>
                     </button>
                 </p>
                 <p class="appoinment-item">
                     <label class="date-departure" for="date-departure">Дата выезда:</label>
-                    <input id="date-departure" type="text" name="date-departure" value="4 июля 2017">
+                    <input class="date-departure-choice" id="date-departure" type="text" name="date-departure" value="4 июля 2017">
                     <button class="calendar" type="button">
                         <svg width="21" height="23" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.406 3.025h2.845c.966 0 1.749.822 1.749 1.837v16.302C21 22.179 20.217 23 19.251 23H1.75C.784 23 0 22.179 0 21.164V4.862c0-1.015.784-1.837 1.75-1.837h2.843V1.648c0-.381.294-.689.657-.689.362 0 .656.308.656.689v1.377h3.938V1.648c0-.381.294-.689.657-.689.361 0 .655.308.655.689v1.377h3.938V1.648c0-.381.293-.689.656-.689.362 0 .656.308.656.689v1.377zm3.159 18.459a.448.448 0 00.123-.32h.001V4.862a.449.449 0 00-.437-.459h-2.845v1.378c0 .381-.294.689-.656.689-.363 0-.656-.308-.656-.689V4.403h-3.938v1.378c0 .381-.294.689-.655.689-.363 0-.657-.308-.657-.689V4.403H5.907v1.378c0 .381-.294.689-.656.689-.363 0-.657-.308-.657-.689V4.403H1.75a.45.45 0 00-.438.459v16.302a.45.45 0 00.438.459h17.501a.448.448 0 00.314-.139z" fill="#A9A9A9"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4.594 9.225h2.625v2.066H4.594V9.225zm0 3.443h2.625v2.067H4.594v-2.067zm2.625 3.444H4.594v2.066h2.625v-2.066zm1.969 0h2.625v2.066H9.188v-2.066zm2.625-3.444H9.188v2.067h2.625v-2.067zM9.188 9.225h2.625v2.066H9.188V9.225zm7.218 6.887h-2.625v2.066h2.625v-2.066zm-2.625-3.444h2.625v2.067h-2.625v-2.067zm2.625-3.443h-2.625v2.066h2.625V9.225z" fill="#A9A9A9"/></svg>
                     </button>
@@ -141,6 +141,8 @@
     </section>
 
     <section class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d837735.1058998309!2d-111.93349820990335!3d34.89634090734571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872da132f942b00d%3A0x5548c523fa6c8efd!2z0KHQtdC00L7QvdCwLCDQkNGA0LjQt9C-0L3QsCA4NjMzNiwg0KHQqNCQ!5e0!3m2!1sru!2sru!4v1592116765787!5m2!1sru!2sru" width="1200" height="594" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <img src="img/map.png" width="1200" height="594" alt="Карта Седоны">
     </section>
     
 </main>
@@ -185,5 +187,18 @@
     </div>
 </footer>
 </div>
+<script>
+var ButtonSearch = document.querySelector(".search");
+var SearchPopup = document.querySelector(".appoinment-form");
+var DateArrival = document.querySelector(".date-arrival-choice");
+
+
+ButtonSearch.addEventListener("click", function ()
+{SearchPopup.classList.toggle("appoinment-form-hidden");
+SearchPopup.classList.toggle("appoinment-form");
+DateArrival.focus();
+});
+
+</script>
   </body>
 </html>

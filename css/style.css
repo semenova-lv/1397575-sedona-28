@@ -52,7 +52,7 @@ body {
     min-width: 1280px;
     margin: 0;
     padding: 0;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', Arial, sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 26px;
@@ -97,8 +97,9 @@ input[type="radio"].visually-hidden {
     
 
 }
-.container {
+.main-container-page {
     width: 1200px;
+    min-height: 100%;
     margin: 0 auto;
     background-color: var(--basic-white);
     box-shadow: 0px 5px 15px rgba(0, 1, 1, 0.2);
@@ -239,7 +240,7 @@ input[type="radio"].visually-hidden {
 }
 .advantages-description {
     color: var(--basic-white);
-    width: 300px;
+    min-width: 300px;
     line-height: 21px;
     margin: 0 auto;
     padding-top: 47px;
@@ -382,6 +383,7 @@ h3.title {
     color: var(--basic-white);
     border: none;
     text-transform: uppercase;
+    outline: none;
 
 }
 
@@ -405,7 +407,13 @@ h3.title {
 
     background-color: var(--basic-white);
     box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
+    z-index: 3;
 }
+.appoinment-form-hidden {
+    display: none;
+
+}
+
 .appoinment-main {
     display: flex;
     flex-wrap: wrap;
@@ -433,7 +441,7 @@ h3.title {
     width: 50%;
 }
 .appoinment-item:nth-child(4) label {
-    padding-left: 53px;
+    padding-left: 50px;
 }
 
 .appoinment-item input {
@@ -453,6 +461,9 @@ h3.title {
 .appoinment-item:nth-child(4) input {
     width: 114px;
     padding: 0;
+}
+.appoinment-item:nth-child(3) input {
+    padding-right: 2px;
 }
 
 .appoinment-item input:hover {
@@ -556,15 +567,30 @@ h3.title {
 }
 
 .map {
-    background-image: url("../img/map.png");
-    background-repeat: no-repeat;
-    background-position: center;
+    position: relative;
     width: 1200px;
-    height: 594px;
+    min-height: 594px;
+    z-index: 1;
 }
 
+.map img {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+} 
+
+.map iframe {
+    position: relative;
+    z-index: 2;
+}
 
 /*Подвал сайта*/
+.main-footer {
+    z-index: 3;
+}
+
 .main-footer .container-1 {
     background-color: var(--footer);
     margin-top: -120px;
@@ -719,10 +745,10 @@ h3.title {
     background-image: url("../img/checkbox-on.svg");
 }
 .input-checkbox:disabled + label::before {
-    background-image: url("../img/disabled-off.svg");
+    background-image: url("../img/checkbox-disabled-off.svg");
 }
 .input-checkbox:checked:disabled + label::before {
-    background-image: url("../img/disabled-on.svg");
+    background-image: url("../img/checkbox-disabled-on.svg;
 }
 
 .filter-item.move-to-right {
@@ -759,19 +785,24 @@ h3.title {
     background-color: var(--basic-white);
 }
 
-.range-controls .toggle {
+.toggle svg {
     position: absolute;
-    background-image: url("../img/filter-button.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 23px;
+    width: 19px;
+    height: 21px;
     padding: 0;
-    top: 12px;
+    top: 10px;
+    left: -2px;
     cursor: pointer;
 }
-.range-controls .toggle-max {
+
+
+.toggle-max svg {
     left: 252px;
+}
+.toggle svg:hover {
+    width: 23px;
+    height: 24px;
+    
 }
 
 .price-controls {
@@ -812,6 +843,7 @@ h3.title {
     height: 36px;
     padding: 0;
     margin: 0 auto;
+    outline: none;
 }
 .button.show:hover {
     background-color: var(--basic-white);
@@ -864,6 +896,8 @@ p.sort-title {
 }
 
 .button-sort-of-type {
+    align-self: start;
+    padding: 0;
     font-size: 12px;
     line-height: 18px;
     text-transform: uppercase;
@@ -887,7 +921,16 @@ p.sort-title {
 .button-sort-of-type:active {
     color: var(--basic-black);
     border: none;
+}
+.sort-item-current {
+    border: none;
+    color: var(--aquamarine);
+    pointer-events: none;
+}
 
+.sort-button-up_down {
+    margin: 0;
+    padding: 0;
 }
 
 .sort-button {
@@ -895,6 +938,14 @@ p.sort-title {
     padding: 0;
 
     display: flex;
+}
+.button-up-dir,
+.button-down-dir {
+    padding: 0;
+    border: none;
+    background:transparent;
+    cursor: pointer;
+    outline: none;
 }
 
 .button-down-dir {
@@ -917,13 +968,16 @@ p.sort-title {
     fill: var(--aquamarine);
 }
 
+.sort-button-current path {
+    fill: var(--aquamarine);
+}
 
 /*Список отелей*/
 .hotels {
     background-color: var(--basic-white);
     text-align: left;
-    min-height: 575px; /*Придумать*/
-
+    padding-bottom: 120px;
+      
 }
 
 .hotels-list {
@@ -937,10 +991,11 @@ p.sort-title {
 
 .hotels-item {
     padding-bottom: 30px;
-    padding-top: 30px;
+    padding-top: 29px;
     display: grid;
     grid-template-columns: 135px 29px 110px 6px 142px 522px 110px;
     grid-template-rows: 30px 30px 30px;
+    padding-left: 73px;
     border-top: 1px solid var(--input-focus-border);  
 }
 
@@ -952,13 +1007,16 @@ p.sort-title {
 .hotels-foto {
     grid-row: 1/-1;
     grid-column: 1/2;
+    object-fit: contain;
 }
 .hotels-title {
     margin: 0;
     grid-row: 1/2;
-    grid-column: 3/6;
-
-
+    grid-column: 3/7;
+    justify-self: start;
+    align-self: start;
+    display: inline-block;
+    margin-top: -5px;
 } 
 
 .hotels-title a {
@@ -979,6 +1037,7 @@ p.sort-title {
     grid-row: 2/-1;
     grid-column: 3/4; 
     align-self: end;
+    
 }
 .hotels-price {
     margin: 0;
@@ -1034,6 +1093,7 @@ p.sort-title {
     width: 142px;
     height: 27px;
     margin-top: 15px;
+
 }
 
 .hotels-title p {

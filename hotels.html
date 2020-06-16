@@ -8,7 +8,7 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body class="page-body">
-<div class="container">
+<div class="main-container-page">
 <header class="main-header">
     <nav class="container-1 main-navigation">
             <a class="navigation-logo" a href="index.html">
@@ -76,8 +76,12 @@
                         <div class="scale">
                             <div class="bar"></div>
                         </div>
-                        <div class="toggle toggle-min" tabindex="0"> </div>
-                        <div class="toggle toggle-max" tabindex="0"> </div>
+                        <div class="toggle toggle-min" tabindex="0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23"><path opacity=".3" fill="#ABABAB" d="M10 20C4.477 20 0 15.522 0 10v2c0 5.522 4.477 10 10 10 5.522 0 10-4.478 10-10v-2c0 5.522-4.478 10-10 10z"/><circle fill="#FFF" cx="10" cy="10" r="10"/><circle fill="#ABABAB" cx="10" cy="10" r="2"/></svg>
+                        </div>
+                        <div class="toggle toggle-max" tabindex="0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23"><path opacity=".3" fill="#ABABAB" d="M10 20C4.477 20 0 15.522 0 10v2c0 5.522 4.477 10 10 10 5.522 0 10-4.478 10-10v-2c0 5.522-4.478 10-10 10z"/><circle fill="#FFF" cx="10" cy="10" r="10"/><circle fill="#ABABAB" cx="10" cy="10" r="2"/></svg>
+                        </div>
                    </div>
                 </div>
             
@@ -92,7 +96,7 @@
                 <p class="sort-title">Сортировка:</p>
                 <ul class="sort-list">
                     <li class="sort-item">
-                        <button class="button-sort-of-type" type="button" aria-label="Сортировка по цене">По цене</button>
+                        <button class="button-sort-of-type sort-item-current" type="button" aria-label="Сортировка по цене">По цене</button>
                     </li>
                     <li class="sort-item">
                         <button class="button-sort-of-type" type="button" aria-label="Сортировка по типу">По типу</button>
@@ -103,17 +107,17 @@
                 </ul>
             </div>
 
-            <fieldset>
+            <fieldset class="sort-button-up_down">
                 <ul class="sort-button">
                     <li>
-                        <a class="button-up-dir" href="#" alt="Расположение по возрастанию">
+                        <button class="button-up-dir" type="button" aria-label="Расположение по возрастанию">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10"><path fill="#231F20" d="M5.5 0L0 10h11z"/></svg>
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a class="button-down-dir" href="#" alt="Расположение по убыванию">
+                        <button class="button-down-dir sort-button-current" type="button" aria-label="Расположение по убыванию">
                             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="10" viewBox="0 0 11 10"><path fill="#231F20" d="M5.5 10L0 0h11"/></svg>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </fieldset>
@@ -121,7 +125,7 @@
 
     </section>
 
-    <section class="hotels container-1">
+    <section class="hotels container-2">
         <h2 class="visually-hidden">Список отелей</h2>
         <ul class="hotels-list">
             <li class="hotels-item">
@@ -178,6 +182,7 @@
                     Рейтинг: 9,2
                 </p>
             </li>
+            
         </ul>
     </section>
 </main>
