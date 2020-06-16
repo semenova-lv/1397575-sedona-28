@@ -748,7 +748,7 @@ h3.title {
     background-image: url("../img/checkbox-disabled-off.svg");
 }
 .input-checkbox:checked:disabled + label::before {
-    background-image: url("../img/checkbox-disabled-on.svg;
+    background-image: url("../img/checkbox-disabled-on.svg");
 }
 
 .filter-item.move-to-right {
@@ -758,6 +758,7 @@ h3.title {
     flex-direction: column;
     
 }
+
 .filter-item.move-to-right .filter-title {
     padding-bottom: 10px;
 }
