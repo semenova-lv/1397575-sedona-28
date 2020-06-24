@@ -6,17 +6,17 @@
     font-style: normal;
     font-weight: 400;
     src: local('PT Sans'), local('PTSans-Regular'),
-         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff2') format('woff2'), 
+         url('../fonts/pt-sans-v11-latin_cyrillic-regular.woff') format('woff') 
   }
 
-  @font-face {
+@font-face {
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
     src: local('PT Sans Bold'), local('PTSans-Bold'),
-         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff2') format('woff2'), 
+         url('../fonts/pt-sans-v11-latin_cyrillic-700.woff') format('woff') 
   }
 
 /*Variables*/
@@ -28,7 +28,6 @@
     --lightgray: #eeeeee;
     --extra-lightgray: #f2f2f2;
     --basic-white: #ffffff;
-    /*--basic-white-back: rgba(255, 255, 255, 0.2);*/
     --aquamarine: #81b3d2;
     --darkaquamarine: #669EC0;
     --extra-darkaquamarine: #5496BD;
@@ -44,6 +43,7 @@
     --gray-for-rating: #666666;
     --gray-for-sort-button: #CACACA;
     --basic-button-step: #a9a9a9;
+    --color-toggle: #ababab;
 }
 
 /*Global*/
@@ -52,7 +52,7 @@ body {
     min-width: 1280px;
     margin: 0;
     padding: 0;
-    font-family: 'PT Sans', Arial, sans-serif;
+    font-family: "PT Sans", "Arial", sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 26px;
@@ -182,14 +182,15 @@ input[type="radio"].visually-hidden {
 }
 
 
-.container-1 {          /*Центрирование*/
+.container-center {          
     width: 1054px;
     margin: 0 auto;
     padding: 0 73px;
+    
 }
 /*Страница index.html*/
 /*Main*/
-.container-2 {          /*Блок во всю ширину страницы*/        
+.container-allwidth {               
     width: 1200px;
     margin: 0 auto;
 
@@ -197,14 +198,16 @@ input[type="radio"].visually-hidden {
 
 /*Приветствие на стр*/
 .greeting {
-    background-image: url("../img/background.jpg");
-    background-position: top center;
-    background-repeat: no-repeat;
     min-height: 510px;
+    margin-top: -15px;
     display:flex;              
     justify-content: center; 
     align-items: center;
-    margin-top: -15px;
+    
+    background-color: var(--gray);
+    background-image: url("../img/background.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
 
 }
 
@@ -244,8 +247,7 @@ input[type="radio"].visually-hidden {
     line-height: 21px;
     margin: 0 auto;
     padding-top: 47px;
- 
-    
+   
 }
 
 .advantages-description p {
@@ -282,6 +284,7 @@ h3.title {
     background-color: var(--lightgray);
     color: var(--darkgray);
     order: 4; 
+    
 }
 
 .advantages-other h3 {
@@ -305,7 +308,7 @@ h3.title {
 /*Предложения*/
 .offer {
     order: 2;
-
+ 
 }
 
 .offer-list {
@@ -325,9 +328,8 @@ h3.title {
 .offer-item {
     width: 300px;
     padding-bottom: 82px;
-
-
 }
+
 .offer-item h3 {
     font-size: 21px;
     line-height: 21px;
@@ -343,11 +345,14 @@ h3.title {
 
 .appoinment {
     position: relative;
-    min-height: 290px;
+    height: 290px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
+    
+    z-index: 4;
+    background-color: var(--basic-white);
+    
 }
 
 .appoinment h2 {
@@ -363,12 +368,13 @@ h3.title {
     margin-top: 33px;
 
 }
+
 .search {
     width: 568px;
     height: 86px;
     align-self: center;
     margin-top: 45px;
-
+   
 }
 
 /*Кнопки "Поиск гостиницы в Седоне" и "Забронировать"*/
@@ -384,7 +390,6 @@ h3.title {
     border: none;
     text-transform: uppercase;
     outline: none;
-
 }
 
 .button:hover {
@@ -397,22 +402,43 @@ h3.title {
 }
 
 /*Форма поиска*/
-
-.appoinment-form {
+.form-search {
     position: absolute;
-    width: 568px;
+    width: 600px;
+    height: 500px;
     top: 100%;
     left: 50%;
-    margin-left: -284px;
+    margin-left: -300px;
+    z-index: 4;
+    overflow: hidden; 
+    
+}
+
+.appoinment-form {
+    width: 568px;
+    margin: 0 auto;
 
     background-color: var(--basic-white);
     box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
-    z-index: 3;
+
+  
 }
 .appoinment-form-hidden {
-    display: none;
+    width: 568px;
+    margin: 0 auto;
 
+    background-color: var(--basic-white);
+    box-shadow: 0px 7px 15px rgba(0, 1, 1, 0.15);
+           
+    animation-name: hide;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    
+    
 }
+.appoinment-form-error {
+    animation: shake 0.6s;
+  }
 
 .appoinment-main {
     display: flex;
@@ -445,7 +471,7 @@ h3.title {
 }
 
 .appoinment-item input {
-    width: 334px;
+    width: 346px;
     height: 38px;
     padding: 0;
     font:inherit;
@@ -455,12 +481,16 @@ h3.title {
     font-weight: bold;
     text-transform: uppercase;
     padding-left: 12px;
+
+    box-sizing: border-box;
+    outline: none;
 }
 
 .appoinment-item:nth-child(3) input,
 .appoinment-item:nth-child(4) input {
     width: 114px;
     padding: 0;
+    text-align: center;
 }
 .appoinment-item:nth-child(3) input {
     padding-right: 2px;
@@ -488,7 +518,8 @@ h3.title {
     border: none;
     outline: none;
 }
-.calendar:hover path {
+.calendar:hover path,
+.calendar:focus path {
     fill: var(--basic-black);
 }
 
@@ -534,7 +565,10 @@ h3.title {
 
 .button-step-down:hover,
 .button-step-up:hover::before,
-.button-step-up:hover::after {
+.button-step-up:hover::after,
+.button-step-down:focus,
+.button-step-up:focus::before,
+.button-step-up:focus::after {
     background-color: var(--basic-black);
 }
 
@@ -569,12 +603,11 @@ h3.title {
 .map {
     position: relative;
     width: 1200px;
-    min-height: 594px;
+    height: 594px;
     z-index: 1;
 }
 
 .map img {
-    
     position: absolute;
     top: 0;
     left: 0;
@@ -584,6 +617,8 @@ h3.title {
 .map iframe {
     position: relative;
     z-index: 2;
+
+    border: none;
 }
 
 /*Подвал сайта*/
@@ -591,7 +626,7 @@ h3.title {
     z-index: 3;
 }
 
-.main-footer .container-1 {
+.main-footer .container-center {
     background-color: var(--footer);
     margin-top: -120px;
     min-height: 120px;
@@ -607,11 +642,11 @@ h3.title {
     line-height: 26px;
     text-transform: uppercase;
     margin-top: 23px;
-}
+    margin-bottom: 35px;
 
-.contacts p {
-    margin: 0;
-    padding-top: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .contacts a {
@@ -664,10 +699,10 @@ h3.title {
     display: flex;
     align-items: center;
 }
-
-.copyright p {
+.copyright b {
     color: var(--basic-black);  
     line-height: 26px;
+    font-weight: normal;
     margin: 0;
     padding-right: 8px;
 
@@ -680,11 +715,11 @@ h3.title {
     fill: var(--svg-focus);
 }
 
-
 /*Страница hotels.html*/
 
 /*Фильтр*/
 .filter {
+    background-color: var(--gray);
     background-image: url("../img/background2.jpg");
     background-position: top center;
     background-repeat: no-repeat;
@@ -702,7 +737,7 @@ h3.title {
     padding: 0;
     margin: 0;
     border: none;
-    padding-right: 117px;
+    padding-right: 116px;
 
 }
 
@@ -732,7 +767,7 @@ h3.title {
     content: "";
     position: absolute;
     left: -40px;
-    top: 0;
+    top: 2px;
     width: 23px;
     height: 23px;
     background-image: url("../img/checkbox-off.svg");
@@ -750,6 +785,9 @@ h3.title {
 .input-checkbox:checked:disabled + label::before {
     background-image: url("../img/checkbox-disabled-on.svg");
 }
+.input-checkbox:focus + label::before {
+    outline: auto;
+}
 
 .filter-item.move-to-right {
     margin-left: auto;
@@ -764,7 +802,6 @@ h3.title {
 }
 .range-filter {
     width: 317px;
-
 
 }
 
@@ -785,31 +822,37 @@ h3.title {
     height: 2px;
     background-color: var(--basic-white);
 }
-
-.toggle svg {
+.range-controls .toggle {
     position: absolute;
-    width: 19px;
-    height: 21px;
-    padding: 0;
-    top: 10px;
-    left: -2px;
+    top: 11px;
+    width: 3px;
+    height: 3px;
+    border: 8px solid var(--basic-white);
+    background-color: var(--color-toggle);
+    border-radius: 50%;
+    box-shadow: 0 2px 1px 0 var(--color-toggle);
     cursor: pointer;
 }
-
-
-.toggle-max svg {
+.range-controls .toggle-max {
     left: 252px;
 }
-.toggle svg:hover {
-    width: 23px;
-    height: 24px;
-    
+
+.range-controls .toggle:hover {
+    width: 4px;
+    height: 4px;
+    border: 9px solid var(--basic-white);
+    top: 10px;
+    left: -1px;
+}
+
+.range-controls .toggle-max:hover {
+    left: 251px;
 }
 
 .price-controls {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     border: 2px solid var(--basic-white);
     border-radius: 2px;
@@ -824,12 +867,26 @@ h3.title {
     font-size: 14px;
     line-height: 21px;
 }
+.max-price {
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.price-controls input {
+    width: 70px;
+    margin-left: 2px;
+    background:transparent;
+    border: none;
+    color: var(--basic-white);
+
+}
 
 .delimiter {
     position: absolute;
     background-color: var(--basic-white);
     width: 2px;
     height: 22px;
+    left: 155px;
 }
 
 /*Кнопка "Показать"*/
@@ -843,7 +900,7 @@ h3.title {
     width: 137px;
     height: 36px;
     padding: 0;
-    margin: 0 auto;
+    margin-left: 85px;
     outline: none;
 }
 .button.show:hover {
@@ -858,8 +915,9 @@ h3.title {
     font-size: 12px;
     line-height: 18px;
     display: flex;
-    align-items: center;
-    min-height: 86px;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .form-sort fieldset {
     border: none;
@@ -932,12 +990,13 @@ p.sort-title {
 .sort-button-up_down {
     margin: 0;
     padding: 0;
+    align-self: flex-end;
 }
 
 .sort-button {
     list-style: none;
     padding: 0;
-
+    margin: 0;
     display: flex;
 }
 .button-up-dir,
@@ -960,7 +1019,9 @@ p.sort-title {
 }
 
 .button-up-dir:hover path,
-.button-down-dir:hover path {
+.button-down-dir:hover path,
+.button-up-dir:focus path,
+.button-down-dir:focus path {
     fill: var(--basic-black);
 }
 
@@ -973,98 +1034,97 @@ p.sort-title {
     fill: var(--aquamarine);
 }
 
-/*Список отелей*/
 .hotels {
     background-color: var(--basic-white);
     text-align: left;
     padding-bottom: 120px;
       
 }
-
 .hotels-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-
 }
 
 .hotels-item {
     padding-bottom: 30px;
-    padding-top: 29px;
-    display: grid;
-    grid-template-columns: 135px 29px 110px 6px 142px 522px 110px;
-    grid-template-rows: 30px 30px 30px;
-    padding-left: 73px;
-    border-top: 1px solid var(--input-focus-border);  
-}
+    padding-top: 30px;
+    display: flex;
+    border-top: 1px solid var(--input-focus-border);
 
-.hotels-item:last-child {
-    padding-bottom: 31px;
-    border-bottom: 1px solid var(--input-focus-border);  
+}
+.hotels-list:last-child {
+    border-bottom: 1px solid var(--input-focus-border);
 }
 
 .hotels-foto {
-    grid-row: 1/-1;
-    grid-column: 1/2;
+    padding-right: 29px;
     object-fit: contain;
 }
-.hotels-title {
-    margin: 0;
-    grid-row: 1/2;
-    grid-column: 3/7;
-    justify-self: start;
-    align-self: start;
-    display: inline-block;
-    margin-top: -5px;
-} 
 
+.hotels-description {
+    display: flex;
+    flex-wrap: wrap;
+    width: 802px;
+ 
+}
+
+.hotels-title {
+    width: 100%;
+    margin: 0;
+    align-self: flex-start;
+    margin-top: -5px;
+}
 .hotels-title a {
     color: var(--basic-black);
     font-size: 21px;
     line-height: 26px;
+    
 }
 
 .hotels-title:hover a {
     color: var(--aquamarine);
-}
-
-.hotels-title:focus a {
-    opacity: 0.3;
-}
-.type-hotels {
-    margin: 0;
-    grid-row: 2/-1;
-    grid-column: 3/4; 
-    align-self: end;
     
 }
-.hotels-price {
-    margin: 0;
-    grid-row: 2/-1;
-    grid-column: 5/6;
-    align-self: end;
+
+.hotels-title:active a {
+    opacity: 0.3;
 }
 
+.type-hotels {
+    width: 110px;
+    margin: 0;
+    padding-right: 6px;
+    align-self: flex-end;
+}
+
+.hotels-price {
+    margin: 0;  
+    align-self: flex-end;
+}
+
+.hotels-rating {
+    margin-left: auto;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .star-hotels {
-    grid-row: 1/2;
-    grid-column: -1/-2;
-    justify-self: end;
+    align-self: flex-end;
 }
 
 .rating {
     margin: 0;
-    grid-row: -1/-2;
-    grid-column: -1/-2;
-    display: inline-block;
     width: 110px;
     height: 27px;
     text-align: center;
     color: var(--gray-for-rating);
     background-color: var(--extra-lightgray);
-    align-self: end;
 }
+
 
 /*Подробнее*/
 .more-info {
@@ -1076,6 +1136,7 @@ p.sort-title {
     width: 110px;
     height: 27px;
     margin-top: 15px;
+    outline: none;
 }
 
 .more-info:hover {
@@ -1094,13 +1155,37 @@ p.sort-title {
     width: 142px;
     height: 27px;
     margin-top: 15px;
-
 }
 
-.hotels-title p {
-    color: var(--darkgray);
+@keyframes hide {
+    0% {
+        transform: translateY(0);  
+    }
+    
+    100% {
+        transform: translateY(-395px);
+    }
 }
-
-
+@keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+  
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(-10px);
+    }
+  
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(10px);
+    }
+  }
 
 
